@@ -1,0 +1,65 @@
+<div class="auth-wrapper flex justify-content-center align-items-center">
+    <div class="auth-wrapper-box flex justify-content-center align-items-center">
+        <form nz-form [formGroup]="signupForm" class="mt-4 sign-up-form" (ngSubmit)="signUp()">
+            <nz-form-item>
+              <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">{{'USER.EMAIL' | translate}}</nz-form-label>
+              <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="{{'AUTH.VALIDATION.INVALID_EMAIL' | translate}}">
+                <input nz-input formControlName="email" id="email" />
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>{{'USER.PASSWORD' | translate}}</nz-form-label>
+              <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="{{'AUTH.VALIDATION.INPUT_PASSWORD' | translate}}">
+                <input
+                  nz-input
+                  type="password"
+                  id="password"
+                  formControlName="password"
+                  (ngModelChange)="updateConfirmValidator()"
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>{{'AUTH.FORM.CONFIRM_PASSWORD' | translate}}</nz-form-label>
+              <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+                <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
+                <ng-template #errorTpl let-control>
+                  <ng-container *ngIf="control.hasError('required')">
+                    {{'AUTH.VALIDATION.CONFIRM_PASSWORD' | translate}}
+                  </ng-container>
+                  <ng-container *ngIf="control.hasError('confirm')">
+                    {{'AUTH.VALIDATION.PASSWORDS_INCOSISTENT' | translate}}
+                  </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="firstname" nzRequired>
+                <span>{{'USER.FIRST_NAME' | translate}}</span>
+              </nz-form-label>
+              <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="{{'AUTH.VALIDATION.INPUT_FIRST_NAME' | translate}}">
+                <input nz-input id="firstName" formControlName="firstName" />
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastName" nzRequired>
+                  <span>{{'USER.LAST_NAME' | translate}}</span>
+                </nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="{{'AUTH.VALIDATION.INPUT_LAST_NAME' | translate}}">
+                  <input nz-input id="lastName" formControlName="lastName" />
+                </nz-form-control>
+              </nz-form-item>
+
+            <nz-form-item nz-row class="register-area">
+              <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                <button nz-button nzType="primary">{{'AUTH.BUTTONS.REGISTER' | translate}}</button>
+                <p>{{'AUTH.HAVE_ACCOUNT' | translate}}&nbsp;<a class="sign-up" [routerLink]="['/auth/sign-in']">{{'AUTH.BUTTONS.LOG_IN' | translate}}</a></p>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+    </div>
+</div>

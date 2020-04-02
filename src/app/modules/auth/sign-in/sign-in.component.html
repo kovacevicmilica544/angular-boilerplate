@@ -1,0 +1,27 @@
+<div class="auth-wrapper flex justify-content-center align-items-center">
+  <div class="auth-wrapper-box flex justify-content-center align-items-center">
+    <form nz-form [formGroup]="authForm" class="login-form mt-4" (ngSubmit)="signIn()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="{{'AUTH.VALIDATION.INPUT_EMAIL' | translate}}">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="email" placeholder="{{'USER.EMAIL' | translate}}" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="{{'AUTH.VALIDATION.INPUT_PASSWORD' | translate}}">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="{{'USER.PASSWORD' | translate}}" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button class="login-form-button" [nzType]="'primary'">{{'AUTH.BUTTONS.LOG_IN' | translate}}</button>
+          {{'AUTH.OR' | translate}}
+          <a routerLink="/auth/sign-up">{{'AUTH.BUTTONS.REGISTER_NOW' | translate}}</a>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>

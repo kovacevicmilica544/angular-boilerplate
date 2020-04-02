@@ -1,0 +1,35 @@
+<nz-layout class="layout">
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" nzWidth="200px">
+      <div class="logo"></div>
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li nz-menu-item routerLink="/app/home">
+          <i nz-icon nzType="home" nzTheme="outline"></i>
+            <span>{{'MENU.HOME' | translate}}</span>
+        </li>
+        <li nz-menu-item  nzIcon="user" routerLink="/app/users">
+          <i nz-icon nzType="user" nzTheme="outline"></i>
+          <span>{{'MENU.USERS' | translate}}</span>
+        </li>
+        <li nz-menu-item  nzIcon="user" (click)="logout()">
+          <i nz-icon nzType="logout" nzTheme="outline"></i>
+          <span>{{'MENU.LOG_OUT' | translate}}</span>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+      </nz-header>
+      <nz-content class="ml-3 mr-3">
+        <!--
+        <nz-breadcrumb>
+            <nz-breadcrumb-item>User</nz-breadcrumb-item>
+            <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        -->
+        <router-outlet></router-outlet>
+      </nz-content>
+      <nz-footer>App @2020</nz-footer>
+    </nz-layout>
+  </nz-layout>
+
+
