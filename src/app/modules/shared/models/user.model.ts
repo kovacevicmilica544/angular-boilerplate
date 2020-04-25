@@ -7,10 +7,10 @@ export class User {
     public lastName: string;
 
     constructor(data) {
-      this.id = data.id || null;
+      data.id ? this.id = data.id : delete this.id;
       this.email = data.email || null;
       this.password = data.password || null;
-      this.role = data.role || null;
+      data.role ? this.role = data.role : delete this.role;
       this.firstName = data.firstName || null;
       this.lastName = data.lastName || null;
     }
