@@ -11,6 +11,9 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzResultModule } from 'ng-zorro-antd/result';
+
+// components
 import { InputComponent } from './components/input/input.component';
 import { ErrorComponent } from './components/error/error.component';
 
@@ -32,7 +35,8 @@ const MODULES = [
   NzLayoutModule,
   NzBreadCrumbModule,
   TranslateModule,
-  NzIconModule
+  NzIconModule,
+  NzResultModule
 ];
 
 const SHARED_PROVIDERS = [

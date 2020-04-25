@@ -1,1 +1,4 @@
-<p>input works!</p>
+<div class="pad-l-1 pad-r-1 pad-t-1 pad-b-1">
+    <label *ngIf="label">{{label}}</label>
+    <input nz-input [placeholder]="inputPlaceholder" [(ngModel)]="value" (ngModelChange)="onChange($event)" [ngModelOptions]="{standalone: true}"/>
+</div>
