@@ -35,7 +35,7 @@ export class SignInComponent implements OnInit {
       this.localStorageService.saveUser(data.user);
       this.router.navigateByUrl('/app/home');
     }, err => {
-      this.messageService.create('error', err.error.error);
+      this.messageService.create('error', err.error);
     });
   }
 

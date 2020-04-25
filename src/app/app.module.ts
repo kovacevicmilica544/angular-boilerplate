@@ -16,6 +16,7 @@ import { LocalStorageService } from './modules/shared/services/local-storage.ser
 import { AuthService } from './modules/auth/auth.service';
 import { AuthInterceptor } from './modules/shared/interceptors/auth.interceptor';
 import { LoaderInterceptor } from './modules/shared/interceptors/loader.interceptor';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -51,12 +52,13 @@ export function tokenGetter() {
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  }),
-  JwtModule.forRoot({
-    config: {
-      tokenGetter,
-    }
-  })
+    }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+      }
+    }),
+    NgxSpinnerModule
   ],
   providers: [
     LocalStorageService,
