@@ -11,8 +11,12 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { InputComponent } from './components/input/input.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const COMPONENTS = [
+  InputComponent,
+  ErrorComponent
 ];
 
 const MODULES = [
