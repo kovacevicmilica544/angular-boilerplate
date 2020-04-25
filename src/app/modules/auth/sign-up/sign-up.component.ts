@@ -33,7 +33,7 @@ export class SignUpComponent implements OnInit {
       this.messageService.create('success', 'You are successfully registered!');
       this.router.navigateByUrl('auth/sign-in');
     }, err => {
-      this.messageService.create('error', 'Check form fields!');
+      this.messageService.create('error', err.error);
     });
   }
 
@@ -47,7 +47,6 @@ export class SignUpComponent implements OnInit {
   public updateConfirmValidator(): void {
     Promise.resolve().then(() => this.signupForm.controls.checkPassword.updateValueAndValidity());
   }
-
 
   private confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
     if (!control.value) {

@@ -15,6 +15,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { LocalStorageService } from './modules/shared/services/local-storage.service';
 import { AuthService } from './modules/auth/auth.service';
 import { AuthInterceptor } from './modules/shared/interceptors/auth.interceptor';
+import { LoaderInterceptor } from './modules/shared/interceptors/loader.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -65,6 +66,7 @@ export function tokenGetter() {
       useValue: icons
     },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
